@@ -58,12 +58,12 @@ class Handler extends ExceptionHandler
                 $response['message'] = Response::$statusTexts[Response::HTTP_NOT_FOUND];
                 $response['status'] = Response::HTTP_NOT_FOUND;
             }
-            // if ($this->isDebugMode()) {
-            //     $response['debug'] = [
-            //         'exception' => get_class($e),
-            //         'trace' => $e->getTrace()
-            //     ];
-            // }
+            if ($this->isDebugMode()) {
+                $response['debug'] = [
+                    'exception' => get_class($e),
+                    // 'trace' => $e->getTrace()
+                ];
+            }
 
             return response()->json(['error' => $response], $response['status']);
         }
