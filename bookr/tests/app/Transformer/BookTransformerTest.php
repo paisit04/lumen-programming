@@ -9,7 +9,7 @@ use App\Book;
 use App\Transformer\BookTransformer;
 use League\Fractal\TransformerAbstract;
 
-class BooksTransformerTest extends TestCase
+class BookTransformerTest extends TestCase
 {
     use DatabaseMigrations;
 
