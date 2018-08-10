@@ -12,7 +12,8 @@ class AuthorsController extends Controller
 {
     public function index()
     {
-        return $this->collection(Author::all(),
+        $authors = Author::with('ratings')->get();
+        return $this->collection($authors,
             new AuthorTransformer()
         );
     }
@@ -66,4 +67,5 @@ class AuthorsController extends Controller
         Author::findOrFail($id)->delete();
         return response(null, 204);
     }
+
 }
